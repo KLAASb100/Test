@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendwinkel.online - Jouw online trendwinkel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #0077b6; /* Donkerblauw */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #023e8a; /* Donkerder blauw */
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #ff7f50; /* Oranje */
+        }
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            max-width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #023e8a; /* Donkerder blauw */
+        }
+        .product p {
+            font-size: 14px;
+            color: #777;
+        }
+        .product button {
+            background-color: #ff7f50; /* Oranje */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .product button:hover {
+            background-color: #ff6347; /* Fel oranje */
+        }
+        footer {
+            background-color: #023e8a; /* Donkerder blauw */
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsieve stijlen */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+            .product {
+                width: 45%; /* Twee producten per rij op tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 24px;
+            }
+            header p {
+                font-size: 14px;
+            }
+            .product {
+                width: 90%; /* Eén product per rij op mobiel */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trendwinkel.online</h1>
+        <p>Jouw online trendwinkel voor de nieuwste mode en accessoires!</p>
+<div class="logo">
+    <div class="circle">T</div>
+    <span>rendwinkel.online</span>
+</div>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Over Ons</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Zoek producten..." oninput="filterProducts()">
+    </div>
+    <div class="product-container" id="product-container">
+        <div class="product" data-name="Trendy T-shirt">
+            <img src="https://via.placeholder.com/200" alt="Trendy T-shirt">
+            <h3>Trendy T-shirt</h3>
+            <p>€29,99</p>
+            <button>In winkelwagen</button>
+        </div>
+        <div class="product" data-name="Stijlvolle Jeans">
+            <img src="https://via.placeholder.com/200" alt="Stijlvolle Jeans">
+            <h3>Stijlvolle Jeans</h3>
+            <p>€59,99</p>
+            <button>In winkelwagen</button>
+        </div>
+        <div class="product" data-name="Modieuze Schoenen">
+            <img src="https://via.placeholder.com/200" alt="Modieuze Schoenen">
+            <h3>Modieuze Schoenen</h3>
+            <p>€79,99</p>
+            <button>In winkelwagen</button>
+        </div>
+        <div class="product" data-name="Hippe Zonnebril">
+            <img src="https://via.placeholder.com/200" alt="Hippe Zonnebril">
+            <h3>Hippe Zonnebril</h3>
+            <p>€39,99</p>
+            <button>In winkelwagen</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Trendwinkel.online. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script>
+        // Functie om producten te filteren op basis van zoekterm
+        function filterProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    product.style.display = 'block'; // Toon product
+                } else {
+                    product.style.display = 'none'; // Verberg product
+                }
+            });
+        }
+    </script>
+</body>
+</html>
